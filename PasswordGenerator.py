@@ -5,6 +5,7 @@
 
 import hashlib
 import os
+import getpass
 
 def generate_salt():
     return os.urandom(16)  # Generates a random 16-byte salt
@@ -17,10 +18,11 @@ def hash_password(password, salt):
     return hashed_password
 
 def main():
-    password = input("Enter your password: ")
+    password = getpass.getpass("Enter your password: ")
     salt = generate_salt()
     hashed_password = hash_password(password, salt)
     print("Hashed password:", hashed_password)
 
 if __name__ == "__main__":
     main()
+
